@@ -1,0 +1,6 @@
+{
+  "name": "e-hisse.az - Elektron Hissələr Bazarı",
+  "description": "Azərbaycanın ilk elektron və mobil ehtiyat hissələri bazarı. Ustalar və anbardarlar üçün orijinal ehtiyat hissələri, ekranlar, batareyalar və aksesuarlar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

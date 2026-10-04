@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+@layer base {
+  :root, [data-theme="dark"], .dark {
+    --bg-main: #0a0f0c;
+    --bg-surface: #111814;
+    --bg-surface-hover: #1a241e;
+    --bg-subtle: #161e19;
+    --text-main: #ffffff;
+    --text-muted: #8b9891;
+    --accent: #a3ff12;
+    --accent-hover: #b4ff3d;
+    --accent-dark: rgba(163, 255, 18, 0.12);
+    --border-color: #212d26;
+    --input-bg: #161e19;
+    --input-border: #2a3830;
+    --scroll-thumb: #2a3830;
+    --scroll-thumb-hover: #3c5245;
+    --avatar-bg: #212d26;
+    --card-hover-border: #3c5245;
+    --accent-text: #000000;
+  }
+
+  [data-theme="light"], .light {
+    --bg-main: #f5f7fa;
+    --bg-surface: #ffffff;
+    --bg-surface-hover: #edf2f7;
+    --bg-subtle: #f1f4f8;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --accent: #4d8b00;
+    --accent-hover: #3d7000;
+    --accent-dark: rgba(77, 139, 0, 0.12);
+    --border-color: #e2e8f0;
+    --input-bg: #ffffff;
+    --input-border: #cbd5e1;
+    --scroll-thumb: #cbd5e1;
+    --scroll-thumb-hover: #94a3b8;
+    --avatar-bg: #e2e8f0;
+    --card-hover-border: #94a3b8;
+    --accent-text: #ffffff;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Light Mode Overrides for Tailwind Components */
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+[data-theme="light"] header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] footer {
+  background-color: #ffffff !important;
+  border-top-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .bg-\[\#0a0f0c\] {
+  background-color: var(--bg-main) !important;
+}
+
+[data-theme="light"] .bg-\[\#0a0f0c\]\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+[data-theme="light"] .bg-\[\#0e1410\] {
+  background-color: var(--bg-surface) !important;
+}
+
+[data-theme="light"] .bg-\[\#111814\] {
+  background-color: var(--bg-surface) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .bg-\[\#161e19\] {
+  background-color: var(--bg-subtle) !important;
+}
+
+[data-theme="light"] .bg-\[\#1a241e\] {
+  background-color: var(--bg-surface-hover) !important;
+}
+
+[data-theme="light"] .text-white {
+  color: var(--text-main) !important;
+}
+
+[data-theme="light"] .text-\[\#8b9891\] {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="light"] .border-\[\#212d26\] {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="light"] .border-\[\#2a3830\] {
+  border-color: var(--input-border) !important;
+}
+
+[data-theme="light"] .border-\[\#3c5245\] {
+  border-color: var(--card-hover-border) !important;
+}
+
+[data-theme="light"] .hover\:bg-\[\#161e19\]:hover,
+[data-theme="light"] .hover\:bg-\[\#161e19\]\/60:hover {
+  background-color: var(--bg-surface-hover) !important;
+}
+
+[data-theme="light"] .hover\:bg-\[\#1a241e\]:hover {
+  background-color: var(--bg-surface-hover) !important;
+}
+
+[data-theme="light"] .hover\:bg-\[\#212d26\]:hover {
+  background-color: var(--bg-surface-hover) !important;
+}
+
+[data-theme="light"] .hover\:text-white:hover {
+  color: var(--text-main) !important;
+}
+
+[data-theme="light"] .text-\[\#a3ff12\] {
+  color: var(--accent) !important;
+}
+
+[data-theme="light"] .bg-\[\#a3ff12\] {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .border-\[\#a3ff12\] {
+  border-color: var(--accent) !important;
+}
+
+[data-theme="light"] .focus\:border-\[\#a3ff12\]:focus {
+  border-color: var(--accent) !important;
+}
+
+[data-theme="light"] .hover\:border-\[\#a3ff12\]:hover {
+  border-color: var(--accent) !important;
+}
+
+[data-theme="light"] .hover\:text-\[\#a3ff12\]:hover {
+  color: var(--accent) !important;
+}
+
+[data-theme="light"] .bg-\[\#a3ff12\]\/10 {
+  background-color: var(--accent-dark) !important;
+}
+
+[data-theme="light"] .bg-\[\#a3ff12\]\/20 {
+  background-color: var(--accent-dark) !important;
+}
+
+[data-theme="light"] .border-\[\#a3ff12\]\/20 {
+  border-color: rgba(77, 139, 0, 0.25) !important;
+}
+
+[data-theme="light"] .border-\[\#a3ff12\]\/30 {
+  border-color: rgba(77, 139, 0, 0.35) !important;
+}
+
+[data-theme="light"] .bg-white\/5 {
+  background-color: #f1f5f9 !important;
+}
+
+[data-theme="light"] .bg-white\/10 {
+  background-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .from-\[\#111814\] {
+  --tw-gradient-from: #ffffff !important;
+}
+
+[data-theme="light"] .via-\[\#0d1310\] {
+  --tw-gradient-stops: #ffffff, #f8fafc, #edf2f7 !important;
+}
+
+[data-theme="light"] .to-\[\#0a0f0c\] {
+  --tw-gradient-to: #edf2f7 !important;
+}
+
+[data-theme="light"] .from-\[\#161e19\] {
+  --tw-gradient-from: #f8fafc !important;
+}
+
+[data-theme="light"] .to-\[\#111814\] {
+  --tw-gradient-to: #ffffff !important;
+}
+
+[data-theme="light"] .to-\[\#212d26\] {
+  --tw-gradient-to: #e2e8f0 !important;
+}
+
+[data-theme="light"] .divide-\[\#212d26\] > :not([hidden]) ~ :not([hidden]),
+[data-theme="light"] .divide-\[\#212d26\]\/50 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  color: var(--text-main) !important;
+  background-color: var(--input-bg) !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Accent utilities */
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
