@@ -1324,7 +1324,7 @@ export const INITIAL_USERS: User[] = [
     "lastName": "Məmmədov",
     "phone": "+994102523226",
     "email": "singroup0211@gmail.com",
-    "approvalStatus": 1,
+    "approvalStatus": 2,
     "isBlocked": false,
     "createdDate": "2026-10-03 13:22:31.2265938"
   }
@@ -1337,7 +1337,7 @@ export const INITIAL_SELLERS: SellerProfile[] = [
     "companyName": "TechMaster Servis",
     "contactPerson": "Elçin Məmmədov",
     "phone": "+994501234567",
-    "whatsAppNumber": null,
+    "whatsAppNumber": "+994501234567",
     "address": "Bakı, Nəsimi rayonu, 28 May küç. 15",
     "rating": 4.8,
     "showContactInfoInAds": true,
@@ -1423,6 +1423,18 @@ export const INITIAL_SELLERS: SellerProfile[] = [
     "phone": "+994103961501",
     "whatsAppNumber": "+994103961501",
     "address": null,
+    "rating": 5.0,
+    "showContactInfoInAds": true,
+    "isPhoneVerified": true
+  },
+  {
+    "id": 9,
+    "userId": 13,
+    "companyName": "Asim Usta Servis",
+    "contactPerson": "Asim Məmmədov",
+    "phone": "+994102523226",
+    "whatsAppNumber": "+994102523226",
+    "address": "Bakı, Nəsimi rayonu",
     "rating": 5.0,
     "showContactInfoInAds": true,
     "isPhoneVerified": true

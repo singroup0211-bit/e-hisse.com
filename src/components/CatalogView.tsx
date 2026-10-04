@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { SparePart } from '../types';
 
@@ -7,6 +7,7 @@ interface CatalogViewProps {
   searchQuery: string;
   setSearchQuery: (q: string) => void;
   initialCategoryId?: number | null;
+  initialSellerId?: number | null;
 }
 
 export const CatalogView: React.FC<CatalogViewProps> = ({
@@ -14,11 +15,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
   searchQuery,
   setSearchQuery,
   initialCategoryId = null,
+  initialSellerId = null,
 }) => {
   const { parts, categories, brands, models, partTypes, qualityTypes, sellers, favorites, toggleFavorite } = useApp();
 
   // Filter states
   const [selectedCategory, setSelectedCategory] = useState<number | ''>(initialCategoryId || '');
+  const [selectedSeller, setSelectedSeller] = useState<number | ''>(initialSellerId || '');
   const [selectedBrand, setSelectedBrand] = useState<number | ''>('');
   const [selectedModel, setSelectedModel] = useState<number | ''>('');
   const [selectedPartType, setSelectedPartType] = useState<number | ''>('');
@@ -29,6 +32,18 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
   const [sortBy, setSortBy] = useState<'views' | 'newest' | 'price_asc' | 'price_desc'>('views');
   const [showDetailedFilters, setShowDetailedFilters] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
+  useEffect(() => {
+    if (initialCategoryId !== null && initialCategoryId !== undefined) {
+      setSelectedCategory(initialCategoryId);
+    }
+  }, [initialCategoryId]);
+
+  useEffect(() => {
+    if (initialSellerId !== null && initialSellerId !== undefined) {
+      setSelectedSeller(initialSellerId);
+    }
+  }, [initialSellerId]);
 
   // Available brands filtered by selected category
   const filteredBrands = useMemo(() => {
@@ -64,6 +79,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
   // Reset filters
   const resetFilters = () => {
     setSelectedCategory('');
+    setSelectedSeller('');
     setSelectedBrand('');
     setSelectedModel('');
     setSelectedPartType('');
@@ -87,6 +103,9 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
           const matchDesc = p.description.toLowerCase().includes(q);
           if (!matchTitle && !matchSku && !matchDesc) return false;
         }
+
+        // Seller filter
+        if (selectedSeller && p.sellerId !== Number(selectedSeller)) return false;
 
         // Category filter
         if (selectedCategory && p.categoryId !== Number(selectedCategory)) return false;

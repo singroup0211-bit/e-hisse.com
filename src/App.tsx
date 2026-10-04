@@ -17,6 +17,7 @@ function MainApp() {
   const [selectedPart, setSelectedPart] = useState<SparePart | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
+  const [selectedSellerId, setSelectedSellerId] = useState<number | null>(null);
   const [authModal, setAuthModal] = useState<{ open: boolean; mode: 'login' | 'register' }>({
     open: false,
     mode: 'login',
@@ -24,15 +25,18 @@ function MainApp() {
 
   const handleSelectPart = (part: SparePart) => {
     setSelectedPart(part);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectCategoryFromCategoriesView = (catId: number) => {
     setSelectedCategoryId(catId);
+    setSelectedSellerId(null);
     setCurrentView('catalog');
   };
 
   const handleSelectSellerFromSellersView = (sellerId: number) => {
-    // Navigate to catalog
+    setSelectedSellerId(sellerId);
+    setSelectedCategoryId(null);
     setCurrentView('catalog');
   };
 
@@ -65,6 +69,7 @@ function MainApp() {
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
                 initialCategoryId={selectedCategoryId}
+                initialSellerId={selectedSellerId}
               />
             )}
 
